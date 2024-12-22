@@ -1,4 +1,4 @@
-package models;
+package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nombre;
     private String correo;
     private String contrasena;
@@ -17,11 +17,11 @@ public class Usuario {
     @Column(name = "fecha_creacion")
     private Timestamp fecha;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
