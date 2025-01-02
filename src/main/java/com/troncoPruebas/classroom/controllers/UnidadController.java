@@ -21,7 +21,7 @@ public class UnidadController {
 
     @CrossOrigin
     @GetMapping("/unidadAsigantura{id}")
-    public Optional<Unidad> getUnidadAlumnoId(@PathVariable Integer id) {
-        return unidadRepository.findById(id);
+    public Unidad getUnidadAlumnoId(@PathVariable Integer id) {
+        return unidadRepository.findByAsignaturaId(id);
     }
 }

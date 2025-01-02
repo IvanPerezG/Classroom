@@ -19,8 +19,8 @@ public class TareaController {
 
     @CrossOrigin
     @GetMapping("/tareaUnidad{id}")
-    public Optional<Tarea> getTareaById(@PathVariable int id) {
-        return tareaRepository.findById(id);
+    public Tarea getTareaById(@PathVariable int id) {
+        return tareaRepository.findByUsuarioId(id);
     }
 
 }
