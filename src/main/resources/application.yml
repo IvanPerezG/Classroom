@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: classroom
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Tronco
+    username: admin2
+    password: 1234
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA5CBGTLP7RMQPCJPO
+      secret-key: 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
+    s3:
+      region: eu-west-3
