@@ -16,7 +16,7 @@ public class Entrega_AlumnoController {
 
     private static final Logger logger = LoggerFactory.getLogger(Entrega_AlumnoController.class);
 
-    @Autowired
+
     private Entrega_AlumnoRepository entrega_alumnoRepository;
 
     @CrossOrigin

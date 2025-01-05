@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("api/usuarioAsignatura")
 public class Usuario_AsignaturaController {
     private static final Logger logger = LoggerFactory.getLogger(Usuario_AsignaturaController.class);
-    @Autowired
+
     private Usuario_AsignaturaRepository usuarioAsignaturaRepository;
 
     @CrossOrigin

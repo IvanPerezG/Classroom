@@ -18,7 +18,7 @@ import java.util.Optional;
 @RequestMapping("api/asignatura")
 public class AsignaturaController {
     private static final Logger logger = LoggerFactory.getLogger(AsignaturaController.class);
-    @Autowired
+
     private AsignaturaRepository asignaturaRepository;
 
     @CrossOrigin

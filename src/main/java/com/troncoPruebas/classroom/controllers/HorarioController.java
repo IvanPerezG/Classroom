@@ -17,7 +17,7 @@ public class HorarioController {
 
     private static final Logger logger = LoggerFactory.getLogger(HorarioController.class);
 
-    @Autowired
+
     private HorarioRepository horarioRepository;
 
     @CrossOrigin

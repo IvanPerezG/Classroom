@@ -16,7 +16,7 @@ public class ContenidoController {
 
     private static final Logger logger = LoggerFactory.getLogger(ContenidoController.class);
 
-    @Autowired
+
     private ContenidoRespository contenidoRespository;
 
     @CrossOrigin

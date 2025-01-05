@@ -16,7 +16,7 @@ import java.util.Optional;
 public class UnidadController {
 
     private static final Logger logger = LoggerFactory.getLogger(UnidadController.class);
-    @Autowired
+
     private UnidadRepository unidadRepository;
 
 

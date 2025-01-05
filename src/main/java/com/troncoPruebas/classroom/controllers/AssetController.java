@@ -17,7 +17,7 @@ import java.util.Map;
 @RequestMapping("api/archivos")
 public class AssetController {
 
-    @Autowired
+
     private S3Service s3Service;
 
     private static final Logger logger = LoggerFactory.getLogger(AssetController.class);

@@ -16,7 +16,7 @@ import java.util.Optional;
 public class TareaController {
     private static final Logger logger = LoggerFactory.getLogger(TareaController.class);
 
-    @Autowired
+
     private TareaRepository tareaRepository;
 
     @CrossOrigin
