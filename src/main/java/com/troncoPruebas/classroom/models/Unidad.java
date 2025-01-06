@@ -12,6 +12,15 @@ public class Unidad {
     private Integer asignaturaId;
     @Column(name = "num_unidad")
     private Integer numUnidad;
+    private String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Integer getId() {
         return id;
