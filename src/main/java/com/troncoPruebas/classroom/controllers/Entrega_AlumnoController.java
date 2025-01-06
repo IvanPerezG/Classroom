@@ -24,4 +24,12 @@ public class Entrega_AlumnoController {
     public List<Entrega_Alumno> recuperarAlumnos(@PathVariable Integer id){
         return entrega_alumnoRepository.findByTareaId(id);
     }
+    @CrossOrigin
+    @GetMapping("/recuperarEntregaAlumnos")
+    public ResponseEntity<Entrega_Alumno> recuperarEntregaAlumnos( @RequestParam Integer tareaId, @RequestParam Integer usuarioId){
+        logger.info(tareaId.toString() + " " + usuarioId.toString());
+        Entrega_Alumno entregaAlumno = entrega_alumnoRepository.findByTareaIdAndUsuarioId(tareaId, usuarioId);
+        return ResponseEntity.ok(entregaAlumno);
+
+    }
 }
