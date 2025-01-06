@@ -2,9 +2,12 @@ package com.troncoPruebas.classroom.models;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Time;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "horario")
 public class Horario {
@@ -16,27 +19,4 @@ public class Horario {
     @Convert(converter = JsonNodeConverter.class)
     private JsonNode horario;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public JsonNode getHorario() {
-        return horario;
-    }
-
-    public void setHorario(JsonNode horario) {
-        this.horario = horario;
-    }
 }
