@@ -1,9 +1,13 @@
 package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "tareas")
 public class Tarea {
@@ -21,59 +25,5 @@ public class Tarea {
     @Column(name = "fecha_creacion")
     private Timestamp fechaCreacion;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Integer getUnidadId() {
-        return unidadId;
-    }
-
-    public void setUnidadId(Integer unidadId) {
-        this.unidadId = unidadId;
-    }
-
-    public Integer getCreadorId() {
-        return creadorId;
-    }
-
-    public void setCreadorId(Integer creadorId) {
-        this.creadorId = creadorId;
-    }
-
-    public Timestamp getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public void setFechaEntrega(Timestamp fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
-    }
-
-    public Timestamp getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Timestamp fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
 }

@@ -15,10 +15,8 @@ import java.util.Optional;
 @RequestMapping("api/Unidad")
 public class UnidadController {
 
-    private static final Logger logger = LoggerFactory.getLogger(UnidadController.class);
     @Autowired
     private UnidadRepository unidadRepository;
-
 
     @CrossOrigin
     @GetMapping("/unidadAsignatura{id}")

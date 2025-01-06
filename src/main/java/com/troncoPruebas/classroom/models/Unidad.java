@@ -1,7 +1,11 @@
 package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "unidades")
 public class Unidad {
@@ -14,35 +18,5 @@ public class Unidad {
     private Integer numUnidad;
     private String nombre;
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getAsignaturaId() {
-        return asignaturaId;
-    }
-
-    public void setAsignaturaId(Integer asignaturaId) {
-        this.asignaturaId = asignaturaId;
-    }
-
-    public Integer getNumUnidad() {
-        return numUnidad;
-    }
-
-    public void setNumUnidad(Integer numUnidad) {
-        this.numUnidad = numUnidad;
-    }
 }

@@ -1,7 +1,11 @@
 package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "usuarios_asignaturas")
 public class Usuario_Asignatura {
@@ -13,27 +17,4 @@ public class Usuario_Asignatura {
     @Column(name = "asignatura_id")
     private Integer asignaturaId;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getusuarioId() {
-        return usuarioId;
-    }
-
-    public void setusuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
-    }
-
-    public Integer getasignaturaId() {
-        return asignaturaId;
-    }
-
-    public void setasignaturaId(Integer asignaturaId) {
-        this.asignaturaId = asignaturaId;
-    }
 }

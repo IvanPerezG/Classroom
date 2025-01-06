@@ -14,16 +14,12 @@ import java.util.Optional;
 @RequestMapping("api/contenido")
 public class ContenidoController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ContenidoController.class);
-
     @Autowired
     private ContenidoRespository contenidoRespository;
 
     @CrossOrigin
     @GetMapping("/contenidoUnidad{id}")
     public List<Contenido> getContenidoUnidad(@PathVariable Integer id) {
-
-        logger.info("getContenidoUnidad"+   contenidoRespository.findByUnidadId(id));
         return contenidoRespository.findByUnidadId(id);
     }
     @CrossOrigin

@@ -16,12 +16,10 @@ public class CalendarioController {
 
     @Autowired
     private CalendarioRepository calendarioRepository;
-    private static final Logger logger = LoggerFactory.getLogger(CalendarioController.class);
 
     @CrossOrigin
     @GetMapping("/recuperar{id}")
     public List<Calendario> getCalendarioUsuario(@PathVariable Integer id) {
-        logger.info(String.valueOf(id));
         return calendarioRepository.findByusuarioId(id);
     }
     @CrossOrigin
@@ -29,8 +27,5 @@ public class CalendarioController {
     public ResponseEntity<Calendario> anadirCalendario(@RequestBody Calendario calendario) {
        Calendario nuevoCalendario = calendarioRepository.save(calendario);
        return ResponseEntity.ok(nuevoCalendario);
-
-
-
     }
 }

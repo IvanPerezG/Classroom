@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("api/alumno_entrega")
 public class Entrega_AlumnoController {
 
-    private static final Logger logger = LoggerFactory.getLogger(Entrega_AlumnoController.class);
-
     @Autowired
     private Entrega_AlumnoRepository entrega_alumnoRepository;
 
@@ -27,9 +25,7 @@ public class Entrega_AlumnoController {
     @CrossOrigin
     @GetMapping("/recuperarEntregaAlumnos")
     public ResponseEntity<Entrega_Alumno> recuperarEntregaAlumnos( @RequestParam Integer tareaId, @RequestParam Integer usuarioId){
-        logger.info(tareaId.toString() + " " + usuarioId.toString());
         Entrega_Alumno entregaAlumno = entrega_alumnoRepository.findByTareaIdAndUsuarioId(tareaId, usuarioId);
         return ResponseEntity.ok(entregaAlumno);
-
     }
 }

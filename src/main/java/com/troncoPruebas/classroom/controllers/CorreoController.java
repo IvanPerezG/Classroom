@@ -17,17 +17,9 @@ public class CorreoController {
     @Autowired
     private CorreoRepository correoRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(CorreoController.class);
-
-
     @CrossOrigin
     @GetMapping("/correosRecibidos{correo}")
     public List<Correo> getCorreos(@PathVariable String correo) {
-        logger.info(correo);
-        logger.info(correoRepository.findByDestinatario(correo).toString());
-        for(Correo correo1 : correoRepository.findByDestinatario(correo)){
-            logger.info(correo1.toString());
-        }
         return correoRepository.findByDestinatario(correo);
     }
 

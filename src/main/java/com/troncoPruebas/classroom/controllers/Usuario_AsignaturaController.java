@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/usuarioAsignatura")
 public class Usuario_AsignaturaController {
-    private static final Logger logger = LoggerFactory.getLogger(Usuario_AsignaturaController.class);
+
     @Autowired
     private Usuario_AsignaturaRepository usuarioAsignaturaRepository;
 
@@ -31,7 +31,6 @@ public class Usuario_AsignaturaController {
     @CrossOrigin
     @PostMapping("/registrarUsuario")
     public ResponseEntity<Usuario_Asignatura> registrarUsuario(@RequestBody Usuario_Asignatura usuarioAsignatura) {
-        logger.info("Registrando Usuarioasignatura " +usuarioAsignatura.getusuarioId() +"//"+ usuarioAsignatura.getasignaturaId());
         Usuario_Asignatura nuevoUsuarioAsignatura =  usuarioAsignaturaRepository.save(usuarioAsignatura);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuarioAsignatura);
     }
