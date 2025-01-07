@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -39,11 +40,14 @@ public class AsignaturaController {
     }
     @CrossOrigin
     @PutMapping("/update/{id}")
-    public ResponseEntity<Asignatura> updateUsuario(@PathVariable Integer id, @RequestBody String key) {
+    public ResponseEntity<Asignatura> updateUsuario(@PathVariable Integer id, @RequestBody Map<String, String> requestBody) {
         if (!asignaturaRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
+
         Asignatura asignatura = asignaturaRepository.findById(id).get();
+        String key = requestBody.get("key");
+        logger.info(key);
         asignatura.setKey(key);
         Asignatura asignaturaUpdate=  asignaturaRepository.save(asignatura);
         return ResponseEntity.ok(asignaturaUpdate);
