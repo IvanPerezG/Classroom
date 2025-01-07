@@ -29,7 +29,7 @@ public class AssetController {
         logger.info(key);
         Map<String,String> result = new HashMap<>();
         result.put("key", key);
-        result.put("url", s3Service.getObjectUrl(key));
+        //result.put("url", s3Service.getObjectUrl(key));
         return result;
     }
 //    @CrossOrigin
