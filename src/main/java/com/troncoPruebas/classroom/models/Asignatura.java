@@ -1,13 +1,18 @@
 package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "asignaturas")
 public class Asignatura {
     @Id
@@ -19,6 +24,7 @@ public class Asignatura {
     private Integer profesorId;
     @Column(name = "fecha_creacion")
     private Timestamp fechaCreacion;
-    private String imagen;
+    @Column(name= "imagen")
+    private String key;
 
 }

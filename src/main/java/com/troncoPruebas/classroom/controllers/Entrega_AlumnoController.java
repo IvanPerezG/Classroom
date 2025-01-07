@@ -1,3 +1,4 @@
+
 package com.troncoPruebas.classroom.controllers;
 
 import com.troncoPruebas.classroom.models.Entrega_Alumno;
@@ -29,3 +30,4 @@ public class Entrega_AlumnoController {
         return ResponseEntity.ok(entregaAlumno);
     }
 }
+

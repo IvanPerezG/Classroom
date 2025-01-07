@@ -1,5 +1,6 @@
 package com.troncoPruebas.classroom.controllers;
 
+import com.troncoPruebas.classroom.models.Contenido;
 import com.troncoPruebas.classroom.models.Tarea;
 import com.troncoPruebas.classroom.repositories.TareaRepository;
 import org.slf4j.Logger;

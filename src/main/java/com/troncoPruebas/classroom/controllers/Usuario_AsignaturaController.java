@@ -31,8 +31,9 @@ public class Usuario_AsignaturaController {
     @CrossOrigin
     @PostMapping("/registrarUsuario")
     public ResponseEntity<Usuario_Asignatura> registrarUsuario(@RequestBody Usuario_Asignatura usuarioAsignatura) {
-        Usuario_Asignatura nuevoUsuarioAsignatura =  usuarioAsignaturaRepository.save(usuarioAsignatura);
+      
+       Usuario_Asignatura nuevoUsuarioAsignatura =  usuarioAsignaturaRepository.save(usuarioAsignatura);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuarioAsignatura);
     }
-
 }

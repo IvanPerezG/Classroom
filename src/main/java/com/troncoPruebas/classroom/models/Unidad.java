@@ -18,5 +18,4 @@ public class Unidad {
     private Integer numUnidad;
     private String nombre;
 
-
 }

@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @Entity
+@Getter
+@Setter
 @Table(name = "tareas")
 public class Tarea {
     @Id
@@ -24,6 +26,6 @@ public class Tarea {
     private Timestamp fechaEntrega;
     @Column(name = "fecha_creacion")
     private Timestamp fechaCreacion;
-
+    private String key;
 
 }

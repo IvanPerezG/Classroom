@@ -1,3 +1,4 @@
+
 package com.troncoPruebas.classroom.controllers;
 
 import com.troncoPruebas.classroom.models.Contenido;
@@ -29,3 +30,4 @@ public class ContenidoController {
         return contenido.orElse(null);
     }
 }
+

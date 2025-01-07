@@ -8,3 +8,4 @@ import java.util.List;
 public interface ContenidoRespository extends JpaRepository<Contenido, Integer> {
     List<Contenido> findByUnidadId(Integer id);
 }
+
