@@ -19,10 +19,8 @@ import java.util.Optional;
 @RequestMapping(value = "api/usuarios")
 public class UsuarioController {
 
-    private static final Logger logger = LoggerFactory.getLogger(UsuarioController.class);
     @Autowired
     private UsuarioRepository usuarioRepository;
-    //Si no existe en la intefaz usuarioRepositorio alguna funcion especifica se puede crear en dicho repositorio de manera manual
 
     @CrossOrigin
     @PostMapping("/logIn")
@@ -32,16 +30,13 @@ public class UsuarioController {
         Usuario usuario = usuarioRepository.findByCorreo(correo);
 
         if (usuario == null) {
-            logger.error("Usuario no encontrado con correo: " + correo);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // Retorna un 404 si el usuario no existe
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         if(correo.equals(usuario.getCorreo()) && pass.equals(usuario.getContrasena())) {
             return ResponseEntity.ok().body(usuario);
         }
-        logger.error("el usuario es null");
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
-    //EL croosorigin es para cuando por ejemplo el front esta desarollado de manera externa
     @CrossOrigin
     @GetMapping("/all")
     public List<Usuario> getAllUsuarios() {
@@ -51,7 +46,6 @@ public class UsuarioController {
     @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id) {
-        //OPtional es por si puede devolver nulo
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         return usuario.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
