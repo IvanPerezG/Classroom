@@ -14,7 +14,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/tarea")
 public class TareaController {
-    private static final Logger logger = LoggerFactory.getLogger(TareaController.class);
 
     @Autowired
     private TareaRepository tareaRepository;

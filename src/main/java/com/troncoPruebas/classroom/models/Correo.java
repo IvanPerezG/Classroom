@@ -4,18 +4,16 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name = "unidades")
-public class Unidad {
+@Table(name = "correo")
+public class Correo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "asignatura_id")
-    private Integer asignaturaId;
-    @Column(name = "num_unidad")
-    private Integer numUnidad;
-    private String nombre;
-
+    private String asunto;
+    private String mensaje;
+    private String remitente;
+    private String destinatario;
 }

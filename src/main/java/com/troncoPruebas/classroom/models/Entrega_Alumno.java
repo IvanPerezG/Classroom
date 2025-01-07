@@ -1,3 +1,4 @@
+
 package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
@@ -29,3 +30,4 @@ public class Entrega_Alumno {
     private Timestamp fecha;
 
 }
+

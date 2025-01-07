@@ -1,3 +1,4 @@
+
 package com.troncoPruebas.classroom.models;
 
 import jakarta.persistence.*;
@@ -23,3 +24,4 @@ public class Contenido {
     private String key;
     private String descripcion;
 }
+

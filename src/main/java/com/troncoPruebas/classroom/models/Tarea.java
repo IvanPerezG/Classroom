@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 
+@Getter
+@Setter
 @Entity
 @Getter
 @Setter
@@ -25,4 +27,5 @@ public class Tarea {
     @Column(name = "fecha_creacion")
     private Timestamp fechaCreacion;
     private String key;
+
 }

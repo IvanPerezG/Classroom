@@ -17,7 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/asignatura")
 public class AsignaturaController {
-    private static final Logger logger = LoggerFactory.getLogger(AsignaturaController.class);
+
     @Autowired
     private AsignaturaRepository asignaturaRepository;
 
@@ -25,7 +25,6 @@ public class AsignaturaController {
     @GetMapping("/recuperarAsignatura{id}")
     public Optional<Asignatura> getAsignatura(@PathVariable Integer id)
     {
-        logger.info("Recuperando asignatura " + id);
         return asignaturaRepository.findById(id);
     }
     @CrossOrigin
