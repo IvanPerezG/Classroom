@@ -5,6 +5,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/Tronco
     username: admin2
     password: 1234
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 cloud:
   aws:

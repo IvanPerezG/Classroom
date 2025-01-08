@@ -1,7 +1,6 @@
 package com.troncoPruebas.classroom.controllers;
 
 import com.troncoPruebas.classroom.models.Asignatura;
-import com.troncoPruebas.classroom.models.Usuario;
 import com.troncoPruebas.classroom.repositories.AsignaturaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +31,6 @@ public class AsignaturaController {
     @PostMapping("/crearAsignatura")
     public ResponseEntity<Integer> crearAsignatura(@RequestBody Asignatura asignatura){
         Date fecha = new Date();
-        logger.info("Creando asignatura " + asignatura.getId() +asignatura.getNombre() +asignatura.getDescripcion() +"a"+asignatura.getProfesorId()+"a" + asignatura.getFechaCreacion() + asignatura.getKey());
         asignatura.setFechaCreacion(new Timestamp(fecha.getTime()));
         Asignatura nuevaAsignatura = asignaturaRepository.save(asignatura);
 
@@ -47,7 +45,6 @@ public class AsignaturaController {
 
         Asignatura asignatura = asignaturaRepository.findById(id).get();
         String key = requestBody.get("key");
-        logger.info(key);
         asignatura.setKey(key);
         Asignatura asignaturaUpdate=  asignaturaRepository.save(asignatura);
         return ResponseEntity.ok(asignaturaUpdate);

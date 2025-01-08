@@ -9,8 +9,6 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @Entity
-@Getter
-@Setter
 @Table(name = "tareas")
 public class Tarea {
     @Id
