@@ -61,5 +61,10 @@ public class TareaController {
         tareaRepository.save(nueva);
         return ResponseEntity.ok().body(nueva);
     }
-
+    @CrossOrigin
+    @DeleteMapping("BorrarTarea{id}")
+    public ResponseEntity<String> borrarTarea(@PathVariable String id) {
+        tareaRepository.deleteById(Integer.valueOf(id));
+        return ResponseEntity.ok().body("Tarea Borrada");
+    }
 }

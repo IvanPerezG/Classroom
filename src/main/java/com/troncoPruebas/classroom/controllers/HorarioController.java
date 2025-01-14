@@ -1,8 +1,10 @@
 package com.troncoPruebas.classroom.controllers;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.troncoPruebas.classroom.models.Horario;
+import com.troncoPruebas.classroom.models.JsonNodeConverter;
 import com.troncoPruebas.classroom.repositories.HorarioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,18 +36,20 @@ public class HorarioController {
         return ResponseEntity.ok().body(horario);
     }
     @CrossOrigin
-    @PostMapping("/actualizar")
-    public ResponseEntity<String> actualizarHorario(@RequestBody Map<String, Object> requestBody) {
+    @PutMapping("/actualizar{id}")
+    public ResponseEntity<String> actualizarHorario(@RequestBody String requestBody,@PathVariable Integer id) {
         try {
-            logger.info(requestBody.toString());
-            Integer usuarioId = (Integer) requestBody.get("usuarioId");
-            Horario horario = horarioRepository.findByUserId(usuarioId);
+            ObjectMapper objectMapper = new ObjectMapper();
+            Horario horario = horarioRepository.findByUserId(id);
             if (horario == null) {
-                return ResponseEntity.notFound().build();
+                Horario newHorario = new Horario();
+                newHorario.setUserId(id);
+                newHorario.setHorario(objectMapper.readTree(requestBody));
+                horarioRepository.save(newHorario);
+                return ResponseEntity.ok().body("Anadido a la BBDD");
             }
-            JsonNode horarioModificado = new ObjectMapper().valueToTree(requestBody.get("horario"));
-            horario.setHorario(horarioModificado);
-            logger.info("Actualizando horario: " + horario);
+
+            horario.setHorario(objectMapper.readTree(requestBody));
             horarioRepository.save(horario);
 
             return ResponseEntity.ok("Horario actualizado correctamente.");

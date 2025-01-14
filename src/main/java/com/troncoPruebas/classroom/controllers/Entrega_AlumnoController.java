@@ -22,6 +22,8 @@ public class Entrega_AlumnoController {
     @Autowired
     private Entrega_AlumnoRepository entrega_alumnoRepository;
 
+    private static final Logger logger = LoggerFactory.getLogger(Entrega_AlumnoController.class);
+
     @CrossOrigin
     @GetMapping("/recuperarAlumnos{id}")
     public List<Entrega_Alumno> recuperarAlumnos(@PathVariable Integer id){
@@ -34,19 +36,25 @@ public class Entrega_AlumnoController {
         return ResponseEntity.ok(entregaAlumno);
     }
     @CrossOrigin
-    @PostMapping("/entregaAlumno")
+    @PutMapping("/entregaAlumno")
     public  ResponseEntity<Entrega_Alumno> entrgarTareaAlumno(@RequestBody Map<String, Object> requestData){
         Date fecha = new Date();
-        Entrega_Alumno nuevo = new Entrega_Alumno();
-        if (requestData.isEmpty()) {
-           Logger logger = LoggerFactory.getLogger(Entrega_AlumnoController.class);
-           logger.info(requestData.toString() +"vacio");
-        }
-        nuevo.setTareaId(Integer.valueOf((String) requestData.get("tareaId")));
-        nuevo.setUsuarioId( Integer.valueOf((String) requestData.get("usuarioId")));
+        Entrega_Alumno nuevo = entrega_alumnoRepository.findByTareaIdAndUsuarioId(Integer.valueOf((String) requestData.get("tareaId")), Integer.valueOf((String) requestData.get("usuarioId")));
+
         nuevo.setKey((String) requestData.get("key"));
         nuevo.setFecha(new Timestamp(fecha.getTime()));
         return ResponseEntity.ok(entrega_alumnoRepository.save(nuevo));
     }
+    @CrossOrigin
+    @PutMapping("/Calificar")
+    public  ResponseEntity<Entrega_Alumno> calificar(@RequestBody Map<String, Object> requestData){
+        Entrega_Alumno nuevo = new Entrega_Alumno();
+        nuevo = entrega_alumnoRepository.findByTareaIdAndUsuarioId(Integer.valueOf((String)requestData.get("tareaId")), Integer.valueOf((String) requestData.get("usuarioId")));
+        nuevo.setCalificacion(Double.valueOf((String) requestData.get("calificacion")));
+        nuevo.setComentarios((String) requestData.get("comentario"));
+
+        return ResponseEntity.ok(entrega_alumnoRepository.save(nuevo));
+    }
 }
+
 

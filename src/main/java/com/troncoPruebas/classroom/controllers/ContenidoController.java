@@ -47,5 +47,11 @@ public class ContenidoController {
         contenidoRespository.save(nueva);
         return ResponseEntity.ok().body(nueva);
     }
+    @CrossOrigin
+    @DeleteMapping("BorrarContenido{id}")
+    public ResponseEntity<String> borrarTarea(@PathVariable Integer id) {
+        contenidoRespository.deleteById(id);
+        return ResponseEntity.ok().body("Contenido Borrada");
+    }
 }
 

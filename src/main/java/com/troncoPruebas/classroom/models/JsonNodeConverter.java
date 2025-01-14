@@ -34,7 +34,6 @@ public class JsonNodeConverter implements AttributeConverter<JsonNode, String> {
             return null;
         }
         try {
-            logger.info(dbData);
             return objectMapper.readTree(dbData);
         } catch (Exception e) {
             throw new IllegalArgumentException("Error converting String to JsonNode", e);
