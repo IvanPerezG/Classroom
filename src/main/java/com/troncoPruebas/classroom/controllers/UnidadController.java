@@ -23,4 +23,10 @@ public class UnidadController {
     public List<Unidad> getUnidadAsignaturaId(@PathVariable Integer id) {
         return unidadRepository.findByAsignaturaId(id);
     }
+    @CrossOrigin
+    @PostMapping("/crearUnidad")
+    public ResponseEntity<Unidad> addUnidad(@RequestBody Unidad unidad) {
+        Unidad savedUnidad = unidadRepository.save(unidad);
+        return ResponseEntity.ok(savedUnidad);
+    }
 }
